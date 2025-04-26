@@ -1,26 +1,19 @@
-import java.io.EOFException;
 import java.io.ObjectInputStream;
 public class FilLectorCX extends Thread {
     private ObjectInputStream ois;
-    public FilLectorCX(ObjectInputStream ois) {
-        this.ois = ois;
+    public FilLectorCX(ObjectInputStream entrada) {
+        this.ois = entrada;
     }
     @Override
     public void run() {
+        System.out.println("Missatge ('sortir' per tancar): "+"Fil de lectura iniciat");
         try {
             String missatge;
-            while (true) {
-                missatge = (String) ois.readObject();
-                // si el servidor decide enviar “sortir”:
-                if (missatge.equals("sortir")) break;
+            while ((missatge = (String) ois.readObject()) != null) {
                 System.out.println("Rebut: " + missatge);
             }
-        } catch (EOFException eof) {
-            // socket cerrado desde el otro extremo → fin de lectura
         } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            System.out.println("Fil de lectura finalitzat.");
+            System.out.println("El servidor ha tancat la connexió.");
         }
     }
 }
