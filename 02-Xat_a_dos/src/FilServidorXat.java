@@ -3,9 +3,9 @@ public class FilServidorXat extends Thread {
     private ObjectInputStream ois;
     private String nombre;
     private static final String MSG_SORTIR = "sortir";
-    public FilServidorXat(ObjectInputStream entrada, String nom) {
-        this.ois = entrada;
-        this.nombre = nom;
+    public FilServidorXat(ObjectInputStream ois, String nombre) {
+        this.ois = ois;
+        this.nombre = nombre;
     }
     @Override
     public void run() {

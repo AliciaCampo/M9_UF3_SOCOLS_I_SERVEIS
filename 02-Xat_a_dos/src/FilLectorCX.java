@@ -1,8 +1,8 @@
 import java.io.ObjectInputStream;
 public class FilLectorCX extends Thread {
     private ObjectInputStream ois;
-    public FilLectorCX(ObjectInputStream entrada) {
-        this.ois = entrada;
+    public FilLectorCX(ObjectInputStream ois) {
+        this.ois = ois;
     }
     @Override
     public void run() {

@@ -72,6 +72,5 @@ public class ClientXat {
             }
         }
         client.tancarClient();
-    }
-        
+    }      
 }
