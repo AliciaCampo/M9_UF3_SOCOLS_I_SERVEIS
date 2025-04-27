@@ -7,7 +7,6 @@ public class FilServidorXat extends Thread {
         this.ois = entrada;
         this.nombre = nom;
     }
-
     @Override
     public void run() {
         try {

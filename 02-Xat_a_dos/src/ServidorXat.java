@@ -1,7 +1,6 @@
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
-
 public class ServidorXat {
     private static final int PORT = 9999;
     private static final String HOST = "localhost";
@@ -47,7 +46,6 @@ public class ServidorXat {
             }
         }
     }
-    
     public String getNom() {
         try {
             oos.writeObject("Escriu el teu nom: ");
