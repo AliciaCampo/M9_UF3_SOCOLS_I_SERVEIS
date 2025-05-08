@@ -3,12 +3,12 @@ import java.net.*;
 import java.util.Scanner;
 public class Client {
     private static final String DIR_ARRIBADA = "/tmp";
-    private ObjectOutputStream OOS;
+    private ObjectOutputStream oos;
     private ObjectInputStream ois;
     private Socket socket;
     public void connectar() throws IOException {
         socket = new Socket(Servidor.HOST, Servidor.PORT);
-        OOS = new ObjectOutputStream(socket.getOutputStream());
+        oos = new ObjectOutputStream(socket.getOutputStream());
         ois = new ObjectInputStream(socket.getInputStream());
         System.out.println("Connectant a -> " + Servidor.HOST + ":" + Servidor.PORT);
         System.out.println("Connexio acceptada: " + socket.getInetAddress());
@@ -21,7 +21,7 @@ public class Client {
             System.out.println("Sortint...");
             return;
         }
-        OOS.writeObject(nomFitxer);
+        oos.writeObject(nomFitxer);
         byte[] contingut = (byte[]) ois.readObject();
         System.out.print("Nom del fitxer a guardar: ");
         String nomFitxerGuardar = scanner.nextLine();
