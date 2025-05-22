@@ -45,16 +45,14 @@ public class ClientXat extends Thread {
                     String missatge = parts[2];
                     System.out.println("Missatge personal per (" + nom + ") de (" + remitent + "): " + missatge);
                 } else if (codi.equals(Missatge.CODI_MSG_GRP) && parts.length > 1) {
-                    System.out.println("Missatge de grup: " + parts[1]);
+                    System.out.println("Enviant missatge:: " + parts[1]);
                 }
             }
         } catch (IOException | ClassNotFoundException e) {
-            // Error de connexió o lectura
         } finally {
             try {
                 tancarClient();
             } catch (IOException e) {
-                // Error al tancar
             }
         }
     }

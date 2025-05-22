@@ -27,7 +27,7 @@ public class GestorClients extends Thread {
                 processaMissatge(missatge);
             }
         } catch (IOException | ClassNotFoundException e) {
-            // Gestionar errors de connexió
+            // Error de connexió
         } finally {
             try {
                 client.close();
@@ -57,7 +57,7 @@ public class GestorClients extends Thread {
             case Missatge.CODI_CONECTAR:
                 if (parts.length > 1) {
                     nom = parts[1];
-                    servidorXat.afegirClient(this);
+                    servidorXat.afegirClient(this); // Afegeix el client
                 }
                 break;
             case Missatge.CODI_SORTIR_CLIENT:
